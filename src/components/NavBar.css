@@ -1,0 +1,13 @@
+.menuIndex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1em; }
+    .menuIndex div a {
+      color: black;
+      text-decoration: none;
+      font-weight: 300; }
+      .menuIndex div a:hover {
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        color: #ebbe9b; }
