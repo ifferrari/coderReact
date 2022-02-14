@@ -8,4 +8,11 @@ const itemListContainer = ({greeting}) => {
         </nav>
     )
 }
+onAdd(({count}) => {
+    <h1> Agregar al Carrito </h1>
+    console.log({count})
+}
+)
+
+
 export default CartWidget
