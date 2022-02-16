@@ -1,31 +1,37 @@
-import {Component} from "react";
+import { useState } from 'react'
 
-class ItemCount extends Component {
-    constructor(props, initial){
-        super(props)
-        this.state = {count: {initial}}
-    }
-    decrement = () => {
-        this.setState ({
-            count: this.state.count -1
-        })
-    }
-    increment = () => {
-        this.setState ({
-            count: this.state.count +1
-        })
-    }
+const ItemCount = ({stock = 1, initial = 1, onAdd})=> {
+   const [quantity, setQuantity] = useState(initial)
 
-render (){
-    return(
-        <>
-            <h3>Contador Objeto</h3>
-            <h3>{this.state.count}</h3>
-            <button onClick={this.decrement}>-</button>
-            <button onClick={this.increment}>+</button>
-            <onAdd />{count}
-        </>
-    )
+   const increment = () => {
+       if(quantity < stock) {
+           setQuantity(quantity+1)
+       }
+   }
+
+   const decrement = () => {
+       if(quantity > 0) {
+           setQuantity(quantity - 1)
+       }     
+   }
+
+   return(
+       <div align="center">          
+           <table >
+               <tbody>
+                   <tr>
+                       <td align="left"><button className="Option" onClick={()=> decrement() }>-</button></td>
+                       <td align="center" style={{fontSize : '20px'}}>{quantity}</td>
+                       <td align="right"><button className="Option" onClick={() => increment() }>+</button></td>
+                   </tr>
+                   <tr>
+                       <td align="center" colSpan="5"><button className="Option" onClick={() => onAdd(quantity)}>Agregar al carrito</button></td>
+                   </tr>
+
+               </tbody>
+           </table>       
+       </div>
+   )
+
 }
-
-}
+export default ItemCount
